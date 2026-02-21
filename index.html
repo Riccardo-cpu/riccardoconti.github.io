@@ -3,528 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adriaplast S.r.l. — Termoformatura & Packaging Industriale</title>
+  <title>Adriaplast S.r.l. — Packaging Sostenibile · Made in Romagna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:   #0b1624;
-      --blue:   #1340a8;
-      --steel:  #334a6b;
-      --ice:    #c8d8f0;
-      --white:  #f4f7fc;
-      --accent: #e8a020;
-      --text:   #1a2740;
+      --forest:  #1a3a2a;
+      --pine:    #2d5e40;
+      --leaf:    #4a8c5c;
+      --sage:    #7ab88a;
+      --mist:    #d4e8d8;
+      --cream:   #f5f2eb;
+      --warm:    #ede8de;
+      --gold:    #c8a84b;
+      --text:    #1e2e20;
+      --textmid: #3d5c42;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Barlow', sans-serif;
-      background: var(--white);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 4rem;
-      background: rgba(11,22,36,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,216,240,0.1);
+      padding: 1rem 4rem;
+      background: rgba(26,58,42,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(122,184,138,0.15);
     }
-
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      color: var(--white);
-      letter-spacing: 0.08em;
-    }
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ice);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-cta {
-      background: var(--accent);
-      color: var(--navy) !important;
-      padding: 0.5rem 1.4rem;
-      border-radius: 2px;
-    }
-
+    .nav-brand { display: flex; flex-direction: column; }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--mist); letter-spacing: 0.1em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-tagline { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mist); text-decoration: none; opacity: 0.85; transition: color .2s, opacity .2s; }
+    .nav-links a:hover { color: var(--sage); opacity: 1; }
+    .nav-cta { background: var(--leaf) !important; color: var(--cream) !important; padding: 0.5rem 1.4rem; border-radius: 20px; opacity: 1 !important; }
+    .nav-cta:hover { background: var(--pine) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { display: block; width: 26px; height: 2px; background: var(--ice); border-radius: 2px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--mist); border-radius: 2px; }
 
     /* HERO */
     #hero {
-      min-height: 100vh;
-      background: var(--navy);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 4rem 8rem 6rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(200,216,240,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,216,240,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(19,64,168,0.3) 0%, transparent 70%);
-      right: -80px; top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .hero-tag {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .hero-tag::before {
-      content: '';
-      display: inline-block;
-      width: 36px; height: 2px;
-      background: var(--accent);
-    }
-
-    .hero-h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 7vw, 7.5rem);
-      line-height: 0.92;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      margin-bottom: 1.8rem;
-    }
-    .hero-h1 em { font-style: normal; color: var(--accent); }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--ice);
-      line-height: 1.7;
-      max-width: 420px;
-      margin-bottom: 3rem;
-    }
-
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--navy);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.85rem 2.2rem;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background .2s, transform .2s;
-    }
-    .btn-primary:hover { background: #f5b840; transform: translateY(-2px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ice);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.85rem 2.2rem;
-      border: 1.5px solid rgba(200,216,240,0.4);
-      border-radius: 2px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: border-color .2s, color .2s;
-    }
-    .btn-outline:hover { border-color: var(--ice); color: var(--white); }
-
-    .hero-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-    }
-
-    .hero-art {
-      width: 400px; height: 400px;
-      animation: float 6s ease-in-out infinite;
-    }
-    .hero-art svg { width: 100%; height: 100%; }
-
-    .stats-bar {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.04);
-      border-top: 1px solid rgba(200,216,240,0.1);
-      display: flex;
-    }
-    .stat-item {
-      flex: 1;
-      padding: 1.6rem 2rem;
-      border-right: 1px solid rgba(200,216,240,0.1);
-      text-align: center;
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.6rem;
-      color: var(--accent);
-      line-height: 1;
-      display: block;
-    }
-    .stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ice);
-      opacity: 0.7;
-    }
-
-    /* SECTIONS */
-    section { padding: 6rem; }
-
-    .section-tag {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .section-tag::before {
-      content: '';
-      display: inline-block;
-      width: 28px; height: 2px;
-      background: var(--blue);
-    }
-
-    .section-h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      line-height: 1;
-      color: var(--navy);
-      letter-spacing: 0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-lead {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--steel);
-      line-height: 1.75;
-      max-width: 600px;
-    }
-
-    /* ABOUT */
-    #about {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .about-timeline { display: flex; flex-direction: column; margin-top: 2rem; }
-    .tl-item { display: flex; gap: 1.8rem; }
-    .tl-left { display: flex; flex-direction: column; align-items: center; }
-    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 4px; }
-    .tl-line { width: 2px; flex: 1; background: rgba(19,64,168,0.15); margin: 4px 0; min-height: 24px; }
-    .tl-item:last-child .tl-line { display: none; }
-    .tl-content { padding-bottom: 2rem; }
-    .tl-year { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; color: var(--blue); letter-spacing: 0.06em; }
-    .tl-text { font-size: 0.9rem; color: var(--steel); line-height: 1.6; }
-
-    .about-visual { position: relative; height: 480px; }
-    .about-bg-box {
-      position: absolute; inset: 0;
-      background: var(--navy);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .about-bg-box::after {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(135deg, rgba(19,64,168,0.6) 0%, transparent 60%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
-    }
-    .about-svg-wrap {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 1;
-    }
-    .about-badge {
-      position: absolute;
-      bottom: -20px; left: -20px;
-      background: var(--accent);
-      color: var(--navy);
-      padding: 1.4rem 1.8rem;
-      border-radius: 2px;
-      z-index: 2;
-    }
-    .ab-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; display: block; }
-    .ab-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
-
-    /* MATERIALS */
-    #materials { background: var(--navy); color: var(--white); }
-    #materials .section-tag { color: var(--accent); }
-    #materials .section-tag::before { background: var(--accent); }
-    #materials .section-h2 { color: var(--white); }
-    #materials .section-lead { color: var(--ice); }
-
-    .mat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1px;
-      margin-top: 3rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .mat-card {
-      background: rgba(11,22,36,0.9);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      cursor: default;
-      transition: background .25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .mat-card::before {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px; background: var(--accent);
-      transform: scaleX(0); transition: transform .3s;
-    }
-    .mat-card:hover { background: rgba(19,64,168,0.3); }
-    .mat-card:hover::before { transform: scaleX(1); }
-    .mat-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; color: var(--accent); display: block; margin-bottom: 0.4rem; }
-    .mat-full { font-size: 0.78rem; color: var(--ice); opacity: 0.6; text-transform: uppercase; letter-spacing: 0.1em; }
-
-    /* PRODUCTS */
-    #products { background: #eef2f9; }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .prod-card {
-      background: var(--white);
-      border-radius: 3px;
-      overflow: hidden;
-      border: 1px solid rgba(19,64,168,0.1);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(11,22,36,0.12); }
-
-    .prod-icon {
-      height: 160px;
-      background: var(--navy);
-      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; background: var(--forest);
+      display: grid; grid-template-columns: 1fr 1fr;
       position: relative; overflow: hidden;
     }
-    .prod-icon::before {
+    #hero::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(19,64,168,0.5) 0%, transparent 70%);
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 40%, rgba(74,140,92,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(45,94,64,0.25) 0%, transparent 60%);
     }
-    .prod-icon svg { width: 80px; height: 80px; z-index: 1; opacity: 0.9; }
-    .prod-body { padding: 1.8rem; }
-    .prod-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem; }
-    .prod-desc { font-size: 0.88rem; color: var(--steel); line-height: 1.65; }
+    .hero-texture {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234a8c5c' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10rem 3rem 8rem 6rem; position: relative; z-index: 2;
+    }
+    .hero-eyebrow { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.8rem; }
+    .hero-eyebrow-text { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); }
+    .hero-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3.2rem, 5.5vw, 6rem); line-height: 1.08; color: var(--cream); margin-bottom: 1.8rem; font-weight: 400; }
+    .hero-h1 em { font-style: italic; color: var(--sage); }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(212,232,216,0.8); line-height: 1.75; max-width: 420px; margin-bottom: 2.5rem; }
+    .hero-pills { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 1rem; border: 1px solid rgba(122,184,138,0.35); border-radius: 20px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: var(--sage); }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--leaf); color: var(--cream); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: none; border-radius: 25px; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: var(--pine); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--mist); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 1.5px solid rgba(212,232,216,0.3); border-radius: 25px; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color .2s, color .2s; }
+    .btn-outline:hover { border-color: var(--sage); color: var(--sage); }
+    .hero-right { display: flex; align-items: center; justify-content: center; z-index: 2; padding: 4rem; }
+    .hero-art { width: 400px; height: 400px; animation: float 7s ease-in-out infinite; }
+    .hero-art svg { width: 100%; height: 100%; }
+    .stats-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(45,94,64,0.5); border-top: 1px solid rgba(122,184,138,0.2);
+      backdrop-filter: blur(8px); display: flex;
+    }
+    .stat-item { flex: 1; padding: 1.5rem 2rem; border-right: 1px solid rgba(122,184,138,0.15); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--gold); line-height: 1; display: block; }
+    .stat-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-top: 0.3rem; display: block; }
+
+    /* SECTION COMMONS */
+    section { padding: 6rem; }
+    .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--leaf); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
+    .section-tag::before { content: '🌿'; font-size: 0.9rem; }
+    .section-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.5rem); line-height: 1.1; color: var(--forest); margin-bottom: 1.4rem; font-weight: 400; }
+    .section-lead { font-size: 1rem; font-weight: 300; color: var(--textmid); line-height: 1.8; max-width: 580px; }
+
+    /* GREEN BANNER */
+    #green-banner { background: var(--leaf); padding: 2rem 6rem; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .gb-item { display: flex; align-items: center; gap: 0.7rem; color: var(--cream); font-size: 0.85rem; font-weight: 500; }
+    .gb-icon { font-size: 1.2rem; }
+
+    /* ABOUT */
+    #about { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-timeline { display: flex; flex-direction: column; margin-top: 2rem; }
+    .tl-item { display: flex; gap: 1.6rem; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--leaf); flex-shrink: 0; margin-top: 5px; }
+    .tl-line { width: 2px; flex: 1; background: rgba(74,140,92,0.2); margin: 4px 0; min-height: 24px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding-bottom: 2rem; }
+    .tl-year { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--pine); }
+    .tl-text { font-size: 0.88rem; color: var(--textmid); line-height: 1.65; margin-top: 0.2rem; }
+    .about-visual { position: relative; height: 480px; }
+    .about-bg-box { position: absolute; inset: 0; background: var(--forest); border-radius: 12px; overflow: hidden; }
+    .about-bg-box::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 30%, rgba(74,140,92,0.3) 0%, transparent 60%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 30px);
+    }
+    .about-svg-wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
+    .about-badge { position: absolute; bottom: -18px; left: -18px; background: var(--gold); color: var(--forest); padding: 1.4rem 1.8rem; border-radius: 8px; z-index: 2; }
+    .ab-num { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1; display: block; }
+    .ab-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    /* SUSTAINABILITY */
+    #sustainability { background: var(--forest); }
+    #sustainability .section-tag { color: var(--sage); }
+    #sustainability .section-h2 { color: var(--cream); }
+    #sustainability .section-lead { color: rgba(212,232,216,0.75); }
+    .sustain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .sustain-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(122,184,138,0.2); border-radius: 10px; padding: 2.2rem; transition: background .3s, border-color .3s; }
+    .sustain-card:hover { background: rgba(74,140,92,0.12); border-color: rgba(122,184,138,0.4); }
+    .sustain-ico { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .sustain-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--sage); margin-bottom: 0.7rem; }
+    .sustain-text { font-size: 0.88rem; color: rgba(212,232,216,0.7); line-height: 1.7; }
+
+    /* MATERIALS */
+    #materials { background: var(--warm); }
+    .mat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .mat-card { background: var(--cream); border: 1.5px solid rgba(74,140,92,0.15); border-radius: 10px; padding: 1.8rem 1.5rem; text-align: center; cursor: default; transition: border-color .25s, transform .25s, box-shadow .25s; position: relative; overflow: hidden; }
+    .mat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--leaf); transform: scaleX(0); transition: transform .3s; }
+    .mat-card:hover { border-color: var(--leaf); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,58,42,0.1); }
+    .mat-card:hover::before { transform: scaleX(1); }
+    .mat-eco { font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
+    .mat-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--pine); display: block; margin-bottom: 0.3rem; }
+    .mat-full { font-size: 0.75rem; color: var(--textmid); opacity: 0.7; letter-spacing: 0.06em; }
+    .mat-tag { display: inline-block; margin-top: 0.6rem; padding: 0.2rem 0.7rem; background: rgba(74,140,92,0.1); border-radius: 10px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--leaf); }
+
+    /* PRODUCTS */
+    #products { background: var(--cream); }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .prod-card { background: var(--warm); border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(74,140,92,0.12); transition: transform .3s, box-shadow .3s; }
+    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(26,58,42,0.12); }
+    .prod-icon { height: 150px; background: var(--pine); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .prod-icon::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 30%, rgba(122,184,138,0.2) 0%, transparent 60%); }
+    .prod-icon svg { width: 72px; height: 72px; z-index: 1; opacity: 0.9; }
+    .prod-body { padding: 1.6rem; }
+    .prod-eco-tag { display: inline-block; padding: 0.2rem 0.7rem; background: rgba(74,140,92,0.1); border-radius: 10px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--leaf); margin-bottom: 0.6rem; }
+    .prod-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--forest); margin-bottom: 0.5rem; }
+    .prod-desc { font-size: 0.86rem; color: var(--textmid); line-height: 1.65; }
 
     /* SECTORS */
-    #sectors { background: var(--white); }
-
-    .sectors-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-top: 3rem;
-    }
-
-    .sector-list { display: flex; flex-direction: column; gap: 1rem; }
-    .sector-item {
-      display: flex; align-items: center; gap: 1.4rem;
-      padding: 1.4rem 1.8rem;
-      background: #eef2f9;
-      border-left: 4px solid transparent;
-      cursor: pointer;
-      transition: border-color .25s, background .25s;
-    }
-    .sector-item.active, .sector-item:hover { border-left-color: var(--accent); background: #e2eaf8; }
+    #sectors { background: var(--warm); }
+    .sectors-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .sector-list { display: flex; flex-direction: column; gap: 0.8rem; }
+    .sector-item { display: flex; align-items: center; gap: 1.2rem; padding: 1.3rem 1.6rem; background: var(--cream); border: 1.5px solid rgba(74,140,92,0.12); border-radius: 10px; cursor: pointer; transition: border-color .25s, background .25s, transform .2s; }
+    .sector-item:hover { transform: translateX(4px); border-color: var(--leaf); }
+    .sector-item.active { border-color: var(--leaf); background: rgba(74,140,92,0.07); }
     .sector-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .sector-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
-
-    .sector-detail { background: var(--navy); color: var(--white); padding: 3rem; border-radius: 3px; position: sticky; top: 100px; }
-    .sector-detail h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 1rem; }
-    .sector-detail p { font-size: 0.95rem; font-weight: 300; color: var(--ice); line-height: 1.75; }
+    .sector-name { font-weight: 600; font-size: 0.95rem; color: var(--forest); }
+    .sector-detail { background: var(--forest); color: var(--cream); padding: 2.8rem; border-radius: 14px; position: sticky; top: 100px; }
+    .sector-detail h3 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--sage); margin-bottom: 1rem; }
+    .sector-detail p { font-size: 0.95rem; font-weight: 300; color: rgba(212,232,216,0.8); line-height: 1.8; }
 
     /* WHY US */
-    #whyus { background: var(--blue); color: var(--white); }
-    #whyus .section-tag { color: var(--accent); }
-    #whyus .section-tag::before { background: var(--accent); }
-    #whyus .section-h2 { color: var(--white); }
-
+    #whyus { background: var(--pine); }
+    #whyus .section-tag { color: var(--sage); }
+    #whyus .section-h2 { color: var(--cream); }
     .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
-    .why-card { padding: 2rem 1.8rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; }
-    .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 0.5rem; }
-    .why-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-    .why-text { font-size: 0.88rem; font-weight: 300; color: var(--ice); line-height: 1.65; }
+    .why-card { padding: 2rem 1.6rem; border: 1px solid rgba(122,184,138,0.2); border-radius: 10px; background: rgba(255,255,255,0.04); }
+    .why-ico { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .why-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--sage); margin-bottom: 0.7rem; }
+    .why-text { font-size: 0.86rem; font-weight: 300; color: rgba(212,232,216,0.75); line-height: 1.65; }
 
     /* CERTS */
-    #certs { background: #eef2f9; text-align: center; }
-    .certs-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; }
-    .cert-chip {
-      display: flex; align-items: center; gap: 0.8rem;
-      padding: 1rem 1.8rem;
-      background: var(--white);
-      border: 1px solid rgba(19,64,168,0.15);
-      border-radius: 2px;
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--navy);
-    }
+    #certs { background: var(--cream); text-align: center; }
+    .certs-row { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 3rem; }
+    .cert-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.6rem; background: var(--warm); border: 1.5px solid rgba(74,140,92,0.2); border-radius: 25px; font-size: 0.82rem; font-weight: 500; color: var(--forest); }
 
     /* CONTACT */
-    #contact {
-      background: var(--navy);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-    #contact .section-tag { color: var(--accent); }
-    #contact .section-tag::before { background: var(--accent); }
-    #contact .section-h2 { color: var(--white); }
-    #contact .section-lead { color: var(--ice); }
-
+    #contact { background: var(--forest); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    #contact .section-tag { color: var(--sage); }
+    #contact .section-h2 { color: var(--cream); }
+    #contact .section-lead { color: rgba(212,232,216,0.75); }
     .contact-info { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
-    .ci-row { display: flex; align-items: flex-start; gap: 1rem; color: var(--ice); }
-    .ci-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
-    .ci-data { font-size: 0.92rem; line-height: 1.6; }
-    .ci-data strong {
-      display: block;
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem;
-      color: var(--accent); margin-bottom: 0.15rem;
-    }
-
+    .ci-row { display: flex; align-items: flex-start; gap: 1rem; }
+    .ci-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .ci-data { font-size: 0.9rem; line-height: 1.6; color: rgba(212,232,216,0.8); }
+    .ci-data strong { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.15rem; }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.8rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-    .form-group label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ice); opacity: 0.6; }
-    .form-group input, .form-group textarea, .form-group select {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,216,240,0.2);
-      border-radius: 2px;
-      padding: 0.85rem 1rem;
-      color: var(--white);
-      font-family: 'Barlow', sans-serif; font-size: 0.92rem;
-      outline: none;
-      transition: border-color .2s;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+    .form-group input, .form-group textarea, .form-group select { background: rgba(255,255,255,0.06); border: 1px solid rgba(122,184,138,0.25); border-radius: 8px; padding: 0.85rem 1rem; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color .2s; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(212,232,216,0.35); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--sage); }
     .form-group textarea { resize: vertical; min-height: 130px; }
-    .form-group select option { background: var(--navy); }
+    .form-group select option { background: var(--forest); }
 
     /* FOOTER */
-    footer {
-      background: #060e1a;
-      padding: 2rem 6rem;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 2rem; flex-wrap: wrap;
-    }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--ice); letter-spacing: 0.08em; }
-    .footer-logo span { color: var(--accent); }
-    .footer-copy { font-size: 0.8rem; color: rgba(200,216,240,0.4); }
+    footer { background: #0e1f14; padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--mist); letter-spacing: 0.1em; }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: rgba(122,184,138,0.45); }
     .footer-links { display: flex; gap: 1.8rem; }
-    .footer-links a { font-size: 0.8rem; color: rgba(200,216,240,0.45); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a { font-size: 0.78rem; color: rgba(122,184,138,0.45); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--sage); }
 
     /* ANIMATIONS */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spin-rev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 
     .hero-left > * { animation: fadeUp .7s ease both; }
     .hero-left > *:nth-child(1) { animation-delay: .05s; }
     .hero-left > *:nth-child(2) { animation-delay: .15s; }
     .hero-left > *:nth-child(3) { animation-delay: .25s; }
-    .hero-left > *:nth-child(4) { animation-delay: .35s; }
+    .hero-left > *:nth-child(4) { animation-delay: .32s; }
+    .hero-left > *:nth-child(5) { animation-delay: .40s; }
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
-      nav { padding: 1.1rem 2rem; }
+      nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
       #hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .hero-left { padding: 8rem 2rem 10rem; }
       .stats-bar { flex-wrap: wrap; }
-      .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(200,216,240,0.1); }
+      .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(122,184,138,0.15); }
+      section { padding: 4rem 2rem; }
+      #green-banner { padding: 1.5rem 2rem; gap: 1.5rem; }
       #about { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
       .about-visual { height: 280px; }
       .about-badge { bottom: -10px; left: -10px; }
-      section { padding: 4rem 2rem; }
+      .sustain-grid { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr 1fr; }
       .sectors-wrapper { grid-template-columns: 1fr; }
       .sector-detail { position: static; }
@@ -543,10 +266,13 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">ADRIA<span>PLAST</span></div>
+  <div class="nav-brand">
+    <div class="nav-logo">ADRIA<span>PLAST</span></div>
+    <div class="nav-tagline">🌿 Packaging Sostenibile · Romagna</div>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">Azienda</a></li>
-    <li><a href="#materials">Materiali</a></li>
+    <li><a href="#sustainability">Sostenibilità</a></li>
     <li><a href="#products">Prodotti</a></li>
     <li><a href="#sectors">Settori</a></li>
     <li><a href="#contact" class="nav-cta">Contattaci</a></li>
@@ -558,17 +284,19 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-
+  <div class="hero-texture"></div>
   <div class="hero-left">
-    <p class="hero-tag">Dal 1978 · Santarcangelo di Romagna</p>
-    <h1 class="hero-h1">PLASTICA<br>CHE<br><em>FUNZIONA</em></h1>
-    <p class="hero-sub">
-      Specializziamo nella termoformatura di precisione e nel packaging industriale
-      per i settori lattiero-caseario, avicolo e alimentare.
-      Qualità, velocità, innovazione.
-    </p>
+    <div class="hero-eyebrow">
+      <span>🌿</span>
+      <span class="hero-eyebrow-text">Dal 1978 · Santarcangelo di Romagna · Green Economy</span>
+    </div>
+    <h1 class="hero-h1">Packaging<br>che rispetta<br><em>il pianeta</em></h1>
+    <p class="hero-sub">Termoformatura di precisione con materiali eco-compatibili e compostabili. Soluzioni di imballaggio sostenibili per i settori alimentari e industriali, con zero compromessi sulla qualità.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">♻️ PLA compostabile</span>
+      <span class="hero-pill">🌱 Materiali riciclabili</span>
+      <span class="hero-pill">🍃 Economia circolare</span>
+    </div>
     <div class="hero-buttons">
       <a href="#products" class="btn-primary">Scopri i prodotti</a>
       <a href="#contact" class="btn-outline">Richiedi preventivo</a>
@@ -578,101 +306,100 @@
   <div class="hero-right">
     <div class="hero-art">
       <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="160" stroke="rgba(200,216,240,0.1)" stroke-width="1"/>
-        <circle cx="200" cy="200" r="120" stroke="rgba(200,216,240,0.06)" stroke-width="1"/>
-        <g style="transform-origin:200px 200px; animation: spin-slow 20s linear infinite;">
-          <path d="M200 40 A160 160 0 0 1 360 200" stroke="#1340a8" stroke-width="3" stroke-linecap="round"/>
-          <path d="M200 360 A160 160 0 0 1 40 200" stroke="#e8a020" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="200" cy="200" r="170" stroke="rgba(122,184,138,0.08)" stroke-width="1"/>
+        <circle cx="200" cy="200" r="130" stroke="rgba(122,184,138,0.06)" stroke-width="1"/>
+        <g style="transform-origin:200px 200px; animation: spin-slow 25s linear infinite;">
+          <path d="M200 32 A168 168 0 0 1 368 200" stroke="#4a8c5c" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          <path d="M200 368 A168 168 0 0 1 32 200" stroke="#7ab88a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
         </g>
-        <g style="transform-origin:200px 200px; animation: spin-slow 14s linear reverse infinite;">
-          <path d="M200 80 A120 120 0 0 1 320 200" stroke="rgba(19,64,168,0.4)" stroke-width="1.5"/>
-          <path d="M200 320 A120 120 0 0 1 80 200" stroke="rgba(232,160,32,0.4)" stroke-width="1.5"/>
+        <g style="transform-origin:200px 200px; animation: spin-rev 18s linear infinite;">
+          <path d="M200 72 A128 128 0 0 1 328 200" stroke="rgba(200,168,75,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M200 328 A128 128 0 0 1 72 200" stroke="rgba(74,140,92,0.3)" stroke-width="1.5" stroke-linecap="round"/>
         </g>
-        <polygon points="200,150 243.3,175 243.3,225 200,250 156.7,225 156.7,175"
-                 fill="rgba(19,64,168,0.15)" stroke="#1340a8" stroke-width="1.5"/>
-        <polygon points="200,160 237.6,181.2 237.6,218.8 200,240 162.4,218.8 162.4,181.2"
-                 fill="rgba(11,22,36,0.5)" stroke="rgba(200,216,240,0.2)" stroke-width="1"/>
-        <text x="200" y="210" font-family="serif" font-size="26"
-              fill="#e8a020" text-anchor="middle" letter-spacing="3" font-weight="bold">AP</text>
-        <circle cx="200" cy="40" r="4" fill="#1340a8"/>
-        <circle cx="360" cy="200" r="4" fill="#e8a020"/>
-        <circle cx="200" cy="360" r="4" fill="#1340a8"/>
-        <circle cx="40"  cy="200" r="4" fill="#e8a020"/>
-        <rect x="50" y="50" width="30" height="2" fill="rgba(200,216,240,0.3)"/>
-        <rect x="50" y="50" width="2" height="30" fill="rgba(200,216,240,0.3)"/>
-        <rect x="320" y="50" width="30" height="2" fill="rgba(200,216,240,0.3)"/>
-        <rect x="348" y="50" width="2" height="30" fill="rgba(200,216,240,0.3)"/>
-        <rect x="50" y="348" width="30" height="2" fill="rgba(200,216,240,0.3)"/>
-        <rect x="50" y="320" width="2" height="30" fill="rgba(200,216,240,0.3)"/>
-        <rect x="320" y="348" width="30" height="2" fill="rgba(200,216,240,0.3)"/>
-        <rect x="348" y="320" width="2" height="30" fill="rgba(200,216,240,0.3)"/>
+        <path d="M200 110 C240 140 260 180 200 230 C140 180 160 140 200 110 Z" fill="rgba(74,140,92,0.15)" stroke="#4a8c5c" stroke-width="1.5"/>
+        <path d="M200 110 L200 230" stroke="rgba(122,184,138,0.5)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="200" cy="170" r="35" fill="rgba(26,58,42,0.8)" stroke="rgba(122,184,138,0.3)" stroke-width="1.5"/>
+        <text x="200" y="176" font-family="serif" font-size="14" fill="#7ab88a" text-anchor="middle" letter-spacing="2" font-weight="600">AP</text>
+        <text x="58" y="72" font-size="22" opacity="0.35">🌿</text>
+        <text x="318" y="68" font-size="18" opacity="0.28">🍃</text>
+        <text x="58" y="348" font-size="18" opacity="0.28">🍃</text>
+        <text x="316" y="350" font-size="22" opacity="0.35">🌿</text>
+        <circle cx="200" cy="32" r="4" fill="#4a8c5c"/>
+        <circle cx="368" cy="200" r="4" fill="#c8a84b"/>
+        <circle cx="200" cy="368" r="4" fill="#4a8c5c"/>
+        <circle cx="32" cy="200" r="4" fill="#c8a84b"/>
       </svg>
     </div>
   </div>
 
   <div class="stats-bar">
     <div class="stat-item"><span class="stat-num">45+</span><span class="stat-label">Anni di esperienza</span></div>
-    <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Produzione continua</span></div>
-    <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Materiali lavorati</span></div>
+    <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Materiali eco-compat.</span></div>
     <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Made in Italy</span></div>
+    <div class="stat-item"><span class="stat-num">♻️</span><span class="stat-label">Economia circolare</span></div>
   </div>
 </section>
+
+<!-- GREEN BANNER -->
+<div id="green-banner">
+  <div class="gb-item"><span class="gb-icon">🌱</span> Materiali compostabili certificati</div>
+  <div class="gb-item"><span class="gb-icon">♻️</span> Filiera circolare</div>
+  <div class="gb-item"><span class="gb-icon">⚡</span> Alta efficienza energetica</div>
+  <div class="gb-item"><span class="gb-icon">🇮🇹</span> Filiera corta made in Romagna</div>
+  <div class="gb-item"><span class="gb-icon">🌿</span> PLA da fonti rinnovabili</div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
   <div>
     <p class="section-tag">Chi siamo</p>
-    <h2 class="section-h2">OLTRE 45 ANNI DI PLASTICA DI QUALITÀ</h2>
-    <p class="section-lead">
-      Adriaplast nasce nel 1978 e cresce con la Romagna. Dai primi anni di stampaggio
-      ad iniezione al settore avicolo, all'eccellenza nella termoformatura per il
-      lattiero-caseario: una storia di investimento continuo e passione.
-    </p>
+    <h2 class="section-h2">45 anni di plastica.<br>Un futuro di verde.</h2>
+    <p class="section-lead">Adriaplast nasce nel 1978 e oggi abbraccia la transizione verso la green economy senza rinunciare alla qualità manifatturiera romagnola. Termoformatura di precisione con materiali sempre più sostenibili: questa è la nostra evoluzione.</p>
     <div class="about-timeline">
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-year">1978 — Fondazione</div>
-          <div class="tl-text">L'azienda muove i primi passi nella lavorazione delle materie plastiche.</div>
+          <div class="tl-text">Nasce Adriaplast: lavorazione materie plastiche con l'artigianato romagnolo nel DNA.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-year">1984 — Crescita</div>
-          <div class="tl-text">Trasferimento a Santarcangelo di Romagna. Stampaggio ad iniezione per il settore avicolo, produzione 24/7.</div>
+          <div class="tl-text">Trasferimento a Santarcangelo. Produzione continuativa 24/7 per il settore avicolo.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-year">1994 — Specializzazione</div>
-          <div class="tl-text">Focalizzazione totale sulla termoformatura, con cessione del ramo iniezione.</div>
+          <div class="tl-text">Focalizzazione sulla termoformatura, eccellenza che ancora oggi ci distingue sul mercato.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
-          <div class="tl-year">2000–Oggi — Innovazione</div>
-          <div class="tl-text">Investimenti costanti in macchinari e materiali innovativi per il lattiero-caseario e l'alimentare.</div>
+          <div class="tl-year">Oggi — Green Transition</div>
+          <div class="tl-text">Integrazione di PLA compostabile e biopolimeri. Il packaging sostenibile è la nostra missione.</div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="about-visual">
     <div class="about-bg-box">
       <div class="about-svg-wrap">
-        <svg width="260" height="260" viewBox="0 0 260 260" fill="none">
-          <rect x="20" y="20" width="220" height="220" rx="4" stroke="rgba(200,216,240,0.12)" stroke-width="1.5"/>
-          <rect x="50" y="50" width="160" height="160" rx="2" fill="rgba(19,64,168,0.18)" stroke="rgba(19,64,168,0.4)" stroke-width="1"/>
-          <rect x="80" y="80" width="100" height="100" rx="2" fill="rgba(19,64,168,0.25)" stroke="#1340a8" stroke-width="1.5"/>
-          <circle cx="130" cy="130" r="28" fill="rgba(232,160,32,0.15)" stroke="#e8a020" stroke-width="2"/>
-          <line x1="20" y1="20" x2="50" y2="50" stroke="rgba(200,216,240,0.2)" stroke-width="1"/>
-          <line x1="240" y1="20" x2="210" y2="50" stroke="rgba(200,216,240,0.2)" stroke-width="1"/>
-          <line x1="20" y1="240" x2="50" y2="210" stroke="rgba(200,216,240,0.2)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="210" y2="210" stroke="rgba(200,216,240,0.2)" stroke-width="1"/>
-          <text x="130" y="137" font-family="serif" font-size="18" fill="#e8a020" text-anchor="middle" letter-spacing="2" font-weight="bold">AP</text>
+        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+          <circle cx="140" cy="140" r="110" stroke="rgba(122,184,138,0.1)" stroke-width="1.5"/>
+          <circle cx="140" cy="140" r="75" stroke="rgba(122,184,138,0.07)" stroke-width="1"/>
+          <path d="M140 60 C185 95 200 130 140 200 C80 130 95 95 140 60 Z" fill="rgba(74,140,92,0.12)" stroke="rgba(122,184,138,0.4)" stroke-width="1.5"/>
+          <path d="M140 60 L140 200" stroke="rgba(122,184,138,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+          <circle cx="140" cy="130" r="30" fill="rgba(26,58,42,0.7)" stroke="rgba(122,184,138,0.3)" stroke-width="1.5"/>
+          <text x="140" y="136" font-family="serif" font-size="16" fill="#7ab88a" text-anchor="middle" font-weight="600">AP</text>
+          <text x="58" y="92" font-size="16" opacity="0.5">🌿</text>
+          <text x="195" y="87" font-size="14" opacity="0.4">🍃</text>
+          <text x="62" y="200" font-size="14" opacity="0.4">🍃</text>
+          <text x="192" y="202" font-size="16" opacity="0.5">🌿</text>
         </svg>
       </div>
     </div>
@@ -683,113 +410,152 @@
   </div>
 </section>
 
+<!-- SUSTAINABILITY -->
+<section id="sustainability">
+  <p class="section-tag">Il nostro impegno</p>
+  <h2 class="section-h2" style="color:var(--cream);">Sostenibilità al centro di ogni scelta</h2>
+  <p class="section-lead">La transizione ecologica non è un'opzione ma una responsabilità. Adriaplast investe in materiali, processi e filiere che riducono l'impatto ambientale senza sacrificare performance e affidabilità.</p>
+  <div class="sustain-grid">
+    <div class="sustain-card">
+      <span class="sustain-ico">🌱</span>
+      <div class="sustain-title">Materiali bio-based</div>
+      <div class="sustain-text">Il PLA (acido polilattico) è ricavato da fonti vegetali rinnovabili come mais e barbabietola. Compostabile industrialmente, riduce drasticamente l'impronta carbonica rispetto ai polimeri fossili tradizionali.</div>
+    </div>
+    <div class="sustain-card">
+      <span class="sustain-ico">♻️</span>
+      <div class="sustain-title">Economia circolare</div>
+      <div class="sustain-text">Progettiamo ogni prodotto pensando alla sua fine vita: raccolta differenziata, riciclabilità e compostabilità. I materiali EVOH barriera estendono la shelf-life riducendo lo spreco alimentare.</div>
+    </div>
+    <div class="sustain-card">
+      <span class="sustain-ico">⚡</span>
+      <div class="sustain-title">Efficienza produttiva</div>
+      <div class="sustain-text">Macchinari moderni ad alta efficienza energetica, scarti di produzione minimizzati e cicli di termoformatura ottimizzati per ridurre consumi e impatti nella nostra manifattura.</div>
+    </div>
+    <div class="sustain-card">
+      <span class="sustain-ico">🚚</span>
+      <div class="sustain-title">Filiera corta</div>
+      <div class="sustain-text">Produzione 100% italiana a Santarcangelo di Romagna. Una filiera corta significa meno trasporti, meno emissioni e un controllo qualità diretto in ogni fase del processo produttivo.</div>
+    </div>
+    <div class="sustain-card">
+      <span class="sustain-ico">🔬</span>
+      <div class="sustain-title">R&D green</div>
+      <div class="sustain-text">Ricerca continua su nuovi biopolimeri e compositi a base vegetale. Collaboriamo con fornitori certificati per integrare le ultime innovazioni del packaging sostenibile nei nostri processi.</div>
+    </div>
+    <div class="sustain-card">
+      <span class="sustain-ico">📋</span>
+      <div class="sustain-title">Conformità normativa</div>
+      <div class="sustain-text">Rispettiamo il Regolamento UE 2019/904 sulla plastica monouso e le direttive sull'imballaggio sostenibile. I nostri materiali sono conformi alle normative europee per il contatto alimentare.</div>
+    </div>
+  </div>
+</section>
+
 <!-- MATERIALS -->
 <section id="materials">
   <p class="section-tag">Materie prime</p>
-  <h2 class="section-h2">I MATERIALI CHE LAVORIAMO</h2>
-  <p class="section-lead">Selezioniamo le migliori materie plastiche per garantire resistenza, igiene e conformità alle normative alimentari europee.</p>
+  <h2 class="section-h2">Materiali per un futuro migliore</h2>
+  <p class="section-lead">Una gamma selezionata per performance ambientali e funzionali. Dal compostabile al riciclabile, ogni scelta è orientata alla sostenibilità.</p>
   <div class="mat-grid">
-    <div class="mat-card"><span class="mat-name">PET</span><span class="mat-full">Polietilene Tereftalato</span></div>
-    <div class="mat-card"><span class="mat-name">PS</span><span class="mat-full">Polistirene</span></div>
-    <div class="mat-card"><span class="mat-name">PS EVOH</span><span class="mat-full">Multistrato barriera</span></div>
-    <div class="mat-card"><span class="mat-name">PP</span><span class="mat-full">Polipropilene</span></div>
-    <div class="mat-card"><span class="mat-name">PP EVOH</span><span class="mat-full">Multistrato PP/barriera</span></div>
-    <div class="mat-card"><span class="mat-name">PLA</span><span class="mat-full">Acido Polilattico Bio</span></div>
-    <div class="mat-card"><span class="mat-name">PS IND</span><span class="mat-full">PS Industriale</span></div>
-    <div class="mat-card"><span class="mat-name">PS AS</span><span class="mat-full">PS Antistatico</span></div>
+    <div class="mat-card"><span class="mat-eco">🌿</span><span class="mat-name">PLA</span><span class="mat-full">Acido Polilattico</span><span class="mat-tag">♻️ Compostabile</span></div>
+    <div class="mat-card"><span class="mat-eco">♻️</span><span class="mat-name">PET</span><span class="mat-full">Polietilene Tereftalato</span><span class="mat-tag">Riciclabile</span></div>
+    <div class="mat-card"><span class="mat-eco">♻️</span><span class="mat-name">PP</span><span class="mat-full">Polipropilene</span><span class="mat-tag">Riciclabile</span></div>
+    <div class="mat-card"><span class="mat-eco">🛡️</span><span class="mat-name">PP EVOH</span><span class="mat-full">Multistrato barriera</span><span class="mat-tag">Anti-spreco</span></div>
+    <div class="mat-card"><span class="mat-eco">♻️</span><span class="mat-name">PS</span><span class="mat-full">Polistirene</span><span class="mat-tag">Riciclabile</span></div>
+    <div class="mat-card"><span class="mat-eco">🛡️</span><span class="mat-name">PS EVOH</span><span class="mat-full">Multistrato PS/barriera</span><span class="mat-tag">Anti-spreco</span></div>
+    <div class="mat-card"><span class="mat-eco">🏭</span><span class="mat-name">PS IND</span><span class="mat-full">PS Industriale</span><span class="mat-tag">Durabilità</span></div>
+    <div class="mat-card"><span class="mat-eco">⚡</span><span class="mat-name">PS AS</span><span class="mat-full">PS Antistatico</span><span class="mat-tag">Specializzato</span></div>
   </div>
 </section>
 
 <!-- PRODUCTS -->
 <section id="products">
   <p class="section-tag">Gamma prodotti</p>
-  <h2 class="section-h2">COSA PRODUCIAMO</h2>
-  <p class="section-lead">Dalla termoformatura di precisione al packaging su misura: ogni articolo è progettato per le massime prestazioni nel vostro processo produttivo.</p>
-
+  <h2 class="section-h2">Packaging sostenibile su misura</h2>
+  <p class="section-lead">Ogni prodotto è progettato con materiali eco-compatibili e processi efficienti. La qualità romagnola al servizio dell'ambiente.</p>
   <div class="products-grid">
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <rect x="10" y="25" width="60" height="35" rx="4" fill="rgba(19,64,168,0.3)" stroke="#c8d8f0" stroke-width="1.5"/>
-          <rect x="15" y="30" width="50" height="25" rx="2" fill="rgba(19,64,168,0.2)" stroke="rgba(200,216,240,0.3)" stroke-width="1"/>
-          <rect x="8" y="22" width="64" height="6" rx="2" fill="rgba(232,160,32,0.4)" stroke="#e8a020" stroke-width="1"/>
+          <rect x="10" y="25" width="60" height="35" rx="6" fill="rgba(74,140,92,0.3)" stroke="#7ab88a" stroke-width="1.5"/>
+          <rect x="15" y="30" width="50" height="25" rx="3" fill="rgba(74,140,92,0.15)" stroke="rgba(122,184,138,0.3)" stroke-width="1"/>
+          <rect x="8" y="22" width="64" height="6" rx="3" fill="rgba(200,168,75,0.3)" stroke="#c8a84b" stroke-width="1"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">🌿 Disponibile in PLA</span>
         <div class="prod-title">Vaschette & Vassoi</div>
-        <div class="prod-desc">Termoformati in PS, PET e PP per prodotti lattiero-caseari, carne e alimenti freschi. Disponibili in diverse profondità e formati standard o custom.</div>
+        <div class="prod-desc">Termoformati in PLA compostabile, PET e PP riciclabile per lattiero-caseario, frutta secca e alimenti freschi. Biodegradabili su richiesta.</div>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <rect x="10" y="15" width="60" height="50" rx="3" fill="rgba(19,64,168,0.2)" stroke="rgba(200,216,240,0.4)" stroke-width="1.5"/>
-          <ellipse cx="30" cy="38" rx="10" ry="14" fill="rgba(19,64,168,0.35)" stroke="#c8d8f0" stroke-width="1.2"/>
-          <ellipse cx="50" cy="38" rx="10" ry="14" fill="rgba(232,160,32,0.25)" stroke="#e8a020" stroke-width="1.2"/>
+          <rect x="10" y="15" width="60" height="50" rx="5" fill="rgba(74,140,92,0.2)" stroke="rgba(122,184,138,0.4)" stroke-width="1.5"/>
+          <ellipse cx="30" cy="38" rx="10" ry="14" fill="rgba(74,140,92,0.3)" stroke="#7ab88a" stroke-width="1.2"/>
+          <ellipse cx="50" cy="38" rx="10" ry="14" fill="rgba(200,168,75,0.2)" stroke="#c8a84b" stroke-width="1.2"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">♻️ PET riciclabile</span>
         <div class="prod-title">Blister & Astucci</div>
-        <div class="prod-desc">Confezioni trasparenti per la valorizzazione del prodotto. Soluzioni personalizzabili per qualsiasi esigenza commerciale e di retail.</div>
+        <div class="prod-desc">Confezioni trasparenti in PET riciclabile. Valorizzazione del prodotto e riduzione dell'imballaggio superfluo per una presentazione sostenibile.</div>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="35" rx="28" ry="8" fill="rgba(19,64,168,0.25)" stroke="#c8d8f0" stroke-width="1.5"/>
-          <path d="M12 35 Q12 55 40 55 Q68 55 68 35" fill="rgba(19,64,168,0.15)" stroke="rgba(200,216,240,0.4)" stroke-width="1.5"/>
-          <ellipse cx="40" cy="27" rx="28" ry="8" fill="rgba(232,160,32,0.2)" stroke="#e8a020" stroke-width="1.5"/>
+          <ellipse cx="40" cy="35" rx="28" ry="8" fill="rgba(74,140,92,0.25)" stroke="#7ab88a" stroke-width="1.5"/>
+          <path d="M12 35 Q12 55 40 55 Q68 55 68 35" fill="rgba(74,140,92,0.1)" stroke="rgba(122,184,138,0.4)" stroke-width="1.5"/>
+          <ellipse cx="40" cy="27" rx="28" ry="8" fill="rgba(200,168,75,0.2)" stroke="#c8a84b" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">🌿 Disponibile in PLA</span>
         <div class="prod-title">Coperchi & Opercoli</div>
-        <div class="prod-desc">Coperchi termoformati per chiusura di vaschette e contenitori. Compatibili con linee di confezionamento automatico e saldatura.</div>
+        <div class="prod-desc">Coperchi compostabili per chiusura di vaschette. Compatibili con linee automatiche e saldatura per zero sprechi di processo.</div>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="22" rx="22" ry="7" fill="rgba(19,64,168,0.3)" stroke="#c8d8f0" stroke-width="1.5"/>
-          <rect x="18" y="22" width="44" height="36" fill="rgba(19,64,168,0.15)" stroke="rgba(200,216,240,0.3)" stroke-width="1"/>
-          <ellipse cx="40" cy="58" rx="22" ry="7" fill="rgba(232,160,32,0.2)" stroke="#e8a020" stroke-width="1.5"/>
+          <ellipse cx="40" cy="22" rx="22" ry="7" fill="rgba(74,140,92,0.3)" stroke="#7ab88a" stroke-width="1.5"/>
+          <rect x="18" y="22" width="44" height="36" fill="rgba(74,140,92,0.1)" stroke="rgba(122,184,138,0.3)" stroke-width="1"/>
+          <ellipse cx="40" cy="58" rx="22" ry="7" fill="rgba(200,168,75,0.2)" stroke="#c8a84b" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">♻️ PP riciclabile</span>
         <div class="prod-title">Cilindri & Contenitori</div>
-        <div class="prod-desc">Contenitori cilindrici per yogurt, formaggi freschi e prodotti avicoli. Pareti di precisione e finitura di alta qualità.</div>
+        <div class="prod-desc">Contenitori per yogurt, formaggi, caffè e frutta secca in PP e PLA. Igiene e sostenibilità a pareti di precisione.</div>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <rect x="8" y="28" width="64" height="28" rx="3" fill="rgba(19,64,168,0.2)" stroke="rgba(200,216,240,0.4)" stroke-width="1.5"/>
-          <rect x="14" y="24" width="52" height="6" rx="2" fill="rgba(232,160,32,0.3)" stroke="#e8a020" stroke-width="1.2"/>
-          <rect x="20" y="38" width="14" height="11" rx="1" fill="rgba(19,64,168,0.3)" stroke="#c8d8f0" stroke-width="1"/>
-          <rect x="46" y="38" width="14" height="11" rx="1" fill="rgba(19,64,168,0.3)" stroke="#c8d8f0" stroke-width="1"/>
+          <rect x="8" y="28" width="64" height="28" rx="5" fill="rgba(74,140,92,0.2)" stroke="rgba(122,184,138,0.4)" stroke-width="1.5"/>
+          <rect x="14" y="24" width="52" height="6" rx="3" fill="rgba(200,168,75,0.25)" stroke="#c8a84b" stroke-width="1.2"/>
+          <rect x="20" y="38" width="14" height="11" rx="2" fill="rgba(74,140,92,0.25)" stroke="#7ab88a" stroke-width="1"/>
+          <rect x="46" y="38" width="14" height="11" rx="2" fill="rgba(74,140,92,0.25)" stroke="#7ab88a" stroke-width="1"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">🌱 Eco-design</span>
         <div class="prod-title">Plateaux & Scatole</div>
-        <div class="prod-desc">Imballaggio rigido e semirigido per il trasporto sicuro di prodotti alimentari. Alta resistenza e stabilità in linea automatica.</div>
+        <div class="prod-desc">Imballaggio rigido con design ottimizzato per ridurre materiale impiegato. Alta resistenza con minore impatto ambientale per kg di prodotto protetto.</div>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-icon">
         <svg viewBox="0 0 80 80" fill="none">
-          <rect x="12" y="20" width="56" height="40" rx="4" fill="rgba(19,64,168,0.15)" stroke="rgba(200,216,240,0.35)" stroke-width="1.5"/>
-          <circle cx="30" cy="40" r="10" fill="rgba(232,160,32,0.2)" stroke="#e8a020" stroke-width="1.3"/>
-          <circle cx="52" cy="34" r="7" fill="rgba(19,64,168,0.3)" stroke="#c8d8f0" stroke-width="1"/>
-          <circle cx="50" cy="50" r="5" fill="rgba(19,64,168,0.2)" stroke="rgba(200,216,240,0.4)" stroke-width="1"/>
+          <rect x="12" y="20" width="56" height="40" rx="6" fill="rgba(74,140,92,0.15)" stroke="rgba(122,184,138,0.35)" stroke-width="1.5"/>
+          <circle cx="30" cy="40" r="10" fill="rgba(200,168,75,0.2)" stroke="#c8a84b" stroke-width="1.3"/>
+          <circle cx="52" cy="34" r="7" fill="rgba(74,140,92,0.3)" stroke="#7ab88a" stroke-width="1"/>
+          <circle cx="50" cy="50" r="5" fill="rgba(74,140,92,0.2)" stroke="rgba(122,184,138,0.4)" stroke-width="1"/>
         </svg>
       </div>
       <div class="prod-body">
+        <span class="prod-eco-tag">🔬 Su progetto</span>
         <div class="prod-title">Floccati & Speciali</div>
-        <div class="prod-desc">Articoli con finitura floccata per applicazioni premium. Prodotti speciali su disegno cliente, dalla prototipazione alla serie.</div>
+        <div class="prod-desc">Articoli su disegno cliente con finitura floccata premium. Sviluppo con materiali sostenibili dalla prototipazione alla produzione in grande serie.</div>
       </div>
     </div>
   </div>
@@ -798,18 +564,17 @@
 <!-- SECTORS -->
 <section id="sectors">
   <p class="section-tag">Mercati serviti</p>
-  <h2 class="section-h2">I NOSTRI SETTORI</h2>
+  <h2 class="section-h2">I nostri settori</h2>
   <div class="sectors-wrapper">
     <div class="sector-list">
       <div class="sector-item active" onclick="setSector(this,0)"><span class="sector-icon">🧀</span><span class="sector-name">Lattiero-Caseario</span></div>
-      <div class="sector-item" onclick="setSector(this,1)"><span class="sector-icon">🐔</span><span class="sector-name">Avicolo</span></div>
-      <div class="sector-item" onclick="setSector(this,2)"><span class="sector-icon">🥩</span><span class="sector-name">Alimentare & Carne</span></div>
-      <div class="sector-item" onclick="setSector(this,3)"><span class="sector-icon">🌿</span><span class="sector-name">Bio & Sostenibile</span></div>
-      <div class="sector-item" onclick="setSector(this,4)"><span class="sector-icon">🏭</span><span class="sector-name">Industriale</span></div>
+      <div class="sector-item" onclick="setSector(this,1)"><span class="sector-icon">🥜</span><span class="sector-name">Frutta Secca</span></div>
+      <div class="sector-item" onclick="setSector(this,2)"><span class="sector-icon">☕</span><span class="sector-name">Caffè</span></div>
+      <div class="sector-item" onclick="setSector(this,3)"><span class="sector-icon">🏭</span><span class="sector-name">Industriale</span></div>
     </div>
     <div class="sector-detail">
       <h3 id="sd-title">Lattiero-Caseario</h3>
-      <p id="sd-text">Il settore di punta di Adriaplast. Produciamo vaschette, coperchi, cilindri e vassoi per yogurt, formaggi freschi, mascarpone, ricotta e latticini. Materiali conformi alle normative alimentari europee, alta igienicità e compatibilità con linee di confezionamento automatico.</p>
+      <p id="sd-text">Il settore storico di Adriaplast. Produciamo vaschette, coperchi e cilindri in PLA compostabile e PP riciclabile per yogurt, formaggi freschi e latticini. Soluzioni eco-compatibili integrate nelle principali linee di confezionamento automatico, nel pieno rispetto delle normative alimentari europee.</p>
     </div>
   </div>
 </section>
@@ -817,42 +582,42 @@
 <!-- WHY US -->
 <section id="whyus">
   <p class="section-tag">Perché sceglierci</p>
-  <h2 class="section-h2">I VANTAGGI DI LAVORARE CON NOI</h2>
+  <h2 class="section-h2" style="color:var(--cream);">Qualità sostenibile, partnership duratura</h2>
   <div class="why-grid">
     <div class="why-card">
-      <div class="why-num">01</div>
-      <div class="why-title">Esperienza pluridecennale</div>
-      <div class="why-text">Oltre 45 anni di know-how nella termoformatura garantiscono soluzioni affidabili e testate sul campo in ogni settore.</div>
+      <span class="why-ico">🌿</span>
+      <div class="why-title">Green by design</div>
+      <div class="why-text">Integriamo la sostenibilità fin dalla progettazione. Ogni scelta di materiale e processo è valutata per il suo impatto ambientale lungo tutto il ciclo di vita.</div>
     </div>
     <div class="why-card">
-      <div class="why-num">02</div>
+      <span class="why-ico">🔧</span>
       <div class="why-title">Produzione su misura</div>
-      <div class="why-text">Sviluppiamo prodotti personalizzati su disegno cliente: dalla prototipazione rapidala produzione in grande serie.</div>
+      <div class="why-text">Packaging personalizzati con materiali sostenibili su specifica cliente. Dalla prototipazione alla serie, senza compromessi su qualità o ambiente.</div>
     </div>
     <div class="why-card">
-      <div class="why-num">03</div>
-      <div class="why-title">Tecnologia avanzata</div>
-      <div class="why-text">Investimenti continui in macchinari moderni per produzioni ad alta efficienza, con tolleranze dimensionali ridottissime.</div>
+      <span class="why-ico">⚙️</span>
+      <div class="why-title">Tecnologia efficiente</div>
+      <div class="why-text">Macchinari ad alta efficienza energetica e scarti ridotti al minimo. Processi ottimizzati per consumi inferiori e una qualità superiore.</div>
     </div>
     <div class="why-card">
-      <div class="why-num">04</div>
-      <div class="why-title">Partner di fiducia</div>
-      <div class="why-text">Un team affiatato e relazioni umane solide rendono Adriaplast un vero partner di lungo periodo, non solo un fornitore.</div>
+      <span class="why-ico">🤝</span>
+      <div class="why-title">Partner affidabile</div>
+      <div class="why-text">Oltre 45 anni di relazioni solide con clienti e fornitori. Una partnership basata sulla fiducia e sulla crescita sostenibile condivisa.</div>
     </div>
   </div>
 </section>
 
 <!-- CERTS -->
 <section id="certs">
-  <p class="section-tag" style="justify-content:center;">Conformità & Qualità</p>
-  <h2 class="section-h2" style="text-align:center;">STANDARD E CERTIFICAZIONI</h2>
-  <p class="section-lead" style="margin:0 auto; text-align:center;">Operiamo nel rispetto delle normative europee per il contatto alimentare e le lavorazioni industriali di precisione.</p>
+  <p class="section-tag" style="justify-content:center;">Conformità & Sostenibilità</p>
+  <h2 class="section-h2" style="text-align:center;">Certificazioni e impegni</h2>
+  <p class="section-lead" style="margin:0 auto; text-align:center;">Rispettiamo le normative europee ambientali e alimentari, con un impegno crescente verso la certificazione green.</p>
   <div class="certs-row">
-    <div class="cert-chip">✅ Normativa CE contatto alimentare</div>
-    <div class="cert-chip">✅ GDPR conforme</div>
+    <div class="cert-chip">🇪🇺 Normativa CE contatto alimentare</div>
+    <div class="cert-chip">🌿 Reg. UE 2019/904 plastica monouso</div>
+    <div class="cert-chip">♻️ PLA certificato compostabile</div>
     <div class="cert-chip">✅ P.IVA 01460960402</div>
-    <div class="cert-chip">✅ Albo Artigiani n. 65431</div>
-    <div class="cert-chip">✅ Registro Imprese Romagna</div>
+    <div class="cert-chip">🏛️ Albo Artigiani n. 65431</div>
   </div>
 </section>
 
@@ -860,8 +625,8 @@
 <section id="contact">
   <div>
     <p class="section-tag">Contatti</p>
-    <h2 class="section-h2">PARLIAMO DEL VOSTRO PROGETTO</h2>
-    <p class="section-lead">Siamo pronti a valutare le vostre esigenze di packaging e proporre la soluzione più adatta. Contattateci per un preventivo senza impegno.</p>
+    <h2 class="section-h2">Parliamo del vostro progetto green</h2>
+    <p class="section-lead">Pronti a trovare la soluzione di packaging sostenibile più adatta alle vostre esigenze. Contattateci per un preventivo senza impegno.</p>
     <div class="contact-info">
       <div class="ci-row"><span class="ci-icon">📍</span><div class="ci-data"><strong>Sede</strong>Via dell'Arte, 16 — 47822 Santarcangelo di Romagna (RN)</div></div>
       <div class="ci-row"><span class="ci-icon">📞</span><div class="ci-data"><strong>Telefono</strong>+39 0541 626282</div></div>
@@ -870,7 +635,6 @@
       <div class="ci-row"><span class="ci-icon">🔒</span><div class="ci-data"><strong>PEC</strong>adriaplastsnc@ticertifica.it</div></div>
     </div>
   </div>
-
   <div>
     <form class="contact-form" onsubmit="handleForm(event)">
       <div class="form-row">
@@ -886,16 +650,26 @@
         <select>
           <option value="">— Seleziona —</option>
           <option>Lattiero-Caseario</option>
-          <option>Avicolo</option>
-          <option>Alimentare & Carne</option>
-          <option>Bio & Sostenibile</option>
+          <option>Frutta Secca</option>
+          <option>Caffè</option>
           <option>Industriale</option>
           <option>Altro</option>
         </select>
       </div>
       <div class="form-group">
+        <label>Materiale sostenibile preferito</label>
+        <select>
+          <option value="">— Seleziona —</option>
+          <option>PLA compostabile</option>
+          <option>PET riciclabile</option>
+          <option>PP riciclabile</option>
+          <option>Materiali barriera EVOH</option>
+          <option>Consiglio tecnico</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label>Messaggio *</label>
-        <textarea placeholder="Descrivete le vostre esigenze: materiali, quantità, formati..." required></textarea>
+        <textarea placeholder="Descrivete le vostre esigenze: materiali sostenibili, quantità, formati, obiettivi ambientali..." required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="align-self:flex-start; margin-top:.5rem;">Invia richiesta →</button>
     </form>
@@ -904,7 +678,10 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">ADRIA<span>PLAST</span> S.r.l.</div>
+  <div>
+    <div class="footer-logo">ADRIA<span>PLAST</span> S.r.l.</div>
+    <div style="font-size:0.7rem; color:rgba(122,184,138,0.4); margin-top:0.3rem; letter-spacing:0.1em;">🌿 Packaging Sostenibile · Made in Romagna</div>
+  </div>
   <div class="footer-copy">© 2025 Adriaplast S.r.l. — P.IVA 01460960402 — Santarcangelo di Romagna (RN)</div>
   <div class="footer-links">
     <a href="#">Privacy Policy</a>
@@ -914,25 +691,22 @@
 </footer>
 
 <script>
-  /* Mobile menu */
   let menuOpen = false;
   function toggleMenu() {
     const links = document.querySelector('.nav-links');
     menuOpen = !menuOpen;
     if (menuOpen) {
-      links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(11,22,36,0.98);padding:1.5rem 2rem;gap:1.2rem;';
+      links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(26,58,42,0.98);padding:1.5rem 2rem;gap:1.2rem;z-index:99;';
     } else {
       links.style.display = 'none';
     }
   }
 
-  /* Sectors data */
   const sectors = [
-    { title: 'Lattiero-Caseario', text: 'Il settore di punta di Adriaplast. Produciamo vaschette, coperchi, cilindri e vassoi per yogurt, formaggi freschi, mascarpone, ricotta e latticini. Materiali conformi alle normative alimentari europee e compatibili con linee di confezionamento automatico.' },
-    { title: 'Avicolo', text: 'Esperienza storica nel settore avicolo. Realizziamo contenitori, vaschette e packaging per uova, carni avicole e prodotti derivati. Soluzioni robuste per il trasporto refrigerato.' },
-    { title: 'Alimentare & Carne', text: 'Packaging per carni fresche, salumi, gastronomia e GDO. Materiali barriera EVOH per estendere la shelf-life e preservare le caratteristiche organolettiche del prodotto.' },
-    { title: 'Bio & Sostenibile', text: 'Produciamo con PLA (acido polilattico), materiale compostabile di origine vegetale. Una risposta concreta alla crescente domanda di packaging sostenibile nel food service, senza rinunciare alla funzionalità.' },
-    { title: 'Industriale', text: 'Contenitori e componenti per applicazioni industriali non alimentari. PS industriale standard e antistatico per settori che richiedono protezione ESD o resistenza chimica superiore.' }
+    { title: 'Lattiero-Caseario', text: 'Il settore storico di Adriaplast. Produciamo vaschette, coperchi e cilindri in PLA compostabile e PP riciclabile per yogurt, formaggi freschi e latticini. Soluzioni eco-compatibili integrate nelle principali linee di confezionamento automatico, nel pieno rispetto delle normative alimentari europee.' },
+    { title: 'Frutta Secca', text: 'Packaging sostenibile per frutta secca, disidratata e snack vegetali. Utilizziamo materiali barriera riciclabili che proteggono dall\'umidità e preservano la qualità organolettica, affiancati da opzioni in PLA compostabile per ridurre l\'impatto ambientale della confezione.' },
+    { title: 'Caffè', text: 'Capsule e contenitori termoformati in materiali eco-compatibili per caffè in polvere, grani e monodose. Soluzioni a tenuta ermetica che mantengono aroma e freschezza, con opzioni compostabili in linea con il Regolamento UE 2019/904 sulla plastica monouso.' },
+    { title: 'Industriale', text: 'Componenti e contenitori per applicazioni industriali progettati per durabilità e fine vita responsabile. PS industriale standard e antistatico ad alta durata, per massimizzare la vita utile del prodotto e ridurre la frequenza di sostituzione e i rifiuti industriali.' }
   ];
 
   function setSector(el, idx) {
@@ -942,22 +716,18 @@
     document.getElementById('sd-text').textContent = sectors[idx].text;
   }
 
-  /* Form */
   function handleForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Messaggio inviato!';
-    btn.style.background = '#2a9d5a';
-    btn.style.color = '#fff';
+    btn.textContent = '🌿 Messaggio inviato!';
+    btn.style.background = 'var(--pine)';
     setTimeout(() => {
       btn.textContent = 'Invia richiesta →';
       btn.style.background = '';
-      btn.style.color = '';
       e.target.reset();
     }, 3000);
   }
 
-  /* Scroll fade-in */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -967,10 +737,10 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.prod-card, .why-card, .mat-card, .cert-chip').forEach(el => {
+  document.querySelectorAll('.prod-card, .why-card, .mat-card, .cert-chip, .sustain-card, .gb-item').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .55s ease, transform .55s ease';
     observer.observe(el);
   });
 </script>
